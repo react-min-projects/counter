@@ -6,23 +6,6 @@ function HelloWorld() {
   const [counter, setCounter] = useState(0)
 
 
-  useEffect(()=>{
-    console.log("count changed:", counter);
-    return ()=>{
-      console.log("cleanUp for count_", counter);
-    }
-  },[counter]);
-
-  useEffect(()=>{
-    const interval = setInterval(()=> console.log("Running...."), 1000);
-    return () => clearInterval(interval);
-  },[]);
-
-  useLayoutEffect(()=>{
-    console.log("DOM Updates, can measure Layout here");
-  })
-
-
   const addValue = useCallback(()=>{
     if(counter==20) {
       return alert("you are not allowed to add value more than 20")
